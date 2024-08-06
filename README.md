@@ -1,28 +1,19 @@
-# Calimero Docker images
+This is a wrapper for the official calimero docker build including an entrypoint-script downloading the server-config.xml and exposing some env vars to overwrite the config-file:
 
-Dockerfiles for [Calimero tools](https://github.com/calimero-project/calimero-tools) and [Calimero server](https://github.com/calimero-project/calimero-server). Built Docker images are available on [Docker Hub](https://hub.docker.com/u/calimeroproject).
+Exposed Envs with default values:
+---
+        FRIENDLY_NAME="Calimero KNXnet/IP-Router"
+        NAME="calimero-knxserver"
+        PHYS_ADDRESS="7.1.0"
+        DISCOVERY="true"
+        DISCOVERY_LISTEN_IF="all"
+        DISCOVERY_OUT_IF="all"
+        LISTEN_IF="eth0"
+        SERIAL_PORT="/dev/ttyKNX"
+        ADDITIONAL_ADDRESS1="7.1.1"
+        ADDITIONAL_ADDRESS2="7.1.2"
+        ADDITIONAL_ADDRESS3="7.1.3"
+        ADDITIONAL_ADDRESS4="7.1.4"
+        ADDITIONAL_ADDRESS5="7.1.5"
 
-### Building images
-Select architecture:
-
-* master branch: amd64
-* platform/aarch64: AArch64
-* platform/armv7: ARMv7
-
-Invoke:
-
-	./build-images.sh
-
-By default, the Dockerfiles use a custom-built JDK as base. The JDK can be built first using 
-the [openjdk tip](https://github.com/openjdk/jdk.git), and requires serveral minutes to build 
-(or really long if using Docker `buildx`).
-Small pre-built OpenJdks are available on [Docker Hub](https://hub.docker.com/u/calimeroproject).
-Alternatively, replace the second stage JDK in the tools/server Dockerfile by uncommenting one of the other JDK choices.
-
-#### Currently used custom JDK configurations
-
-* Architectures: x86-64, ARMv7, AArch64
-* C1 compiler
-* GC: Shenandoah GC (on ARMv7 Serial GC, Shenandoah is not supported)
-* optimize for size
-* Modules: java.base (+ java.xml for Calimero tools)
+If you want to change some other settings, you still have to mount your own server-config.xml to /usr/app/server-config.xml
