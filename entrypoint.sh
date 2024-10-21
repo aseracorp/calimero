@@ -11,6 +11,7 @@ sed -i 's~DISCOVERY_OUT_IF~'"$DISCOVERY_OUT_IF"'~g' /usr/app/server-config.xml
 sed -i 's~DISCOVERY~'"$DISCOVERY"'~g' /usr/app/server-config.xml
 sed -i 's~LISTEN_IF~'"$LISTEN_IF"'~g' /usr/app/server-config.xml
 sed -i 's~SERIAL_PORT~'"$SERIAL_PORT"'~g' /usr/app/server-config.xml
+sed -i 's~SUBNET_TYPE~'"$SUBNET_TYPE"'~g' /usr/app/server-config.xml
 sed -i 's~ADDITIONAL_ADDRESS1~'"$ADDITIONAL_ADDRESS1"'~g' /usr/app/server-config.xml
 sed -i 's~ADDITIONAL_ADDRESS2~'"$ADDITIONAL_ADDRESS2"'~g' /usr/app/server-config.xml
 sed -i 's~ADDITIONAL_ADDRESS3~'"$ADDITIONAL_ADDRESS3"'~g' /usr/app/server-config.xml
