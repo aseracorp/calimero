@@ -34,7 +34,6 @@ if [ ${CUSTOM_XML} == false ]; then
         "+@activate": "true",
         "+@routing": "true",
         "+@networkMonitoring": "true",
-        "+@ListenNetIf": "${NET_IF}",
         "knxAddress": {
             "+content": "${PHYS_ADDRESS}",
             "+@type": "individual"
