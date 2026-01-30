@@ -8,7 +8,7 @@ Exposed Envs with default values:
         DISCOVERY="true"
         DISCOVERY_LISTEN_IF="all"
         DISCOVERY_OUT_IF="all"
-        LISTEN_IF="eth0"
+        NET_IF="eth0"
         SERIAL_PORT="/dev/ttyKNX"
         ADDITIONAL_ADDRESS1="7.1.1"
         ADDITIONAL_ADDRESS2="7.1.2"

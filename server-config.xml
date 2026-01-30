@@ -5,8 +5,7 @@
 	<discovery listenNetIf="DISCOVERY_LISTEN_IF" outgoingNetIf="DISCOVERY_OUT_IF" activate="DISCOVERY" />
 
 	<!-- Provides the KNXnet/IP-side configuration for access to one KNX subnet -->
-	<serviceContainer activate="true" routing="true" networkMonitoring="true"
-		udpPort="3671" listenNetIf="LISTEN_IF">
+	<serviceContainer activate="true" routing="true" networkMonitoring="true" udpPort="3671" netif="NET_IF">
 		<knxAddress type="individual">PHYS_ADDRESS</knxAddress>
 		<routing/>
 		<!-- latencyTolerance specifies the time window for accepting secure multicasts,

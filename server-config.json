@@ -1,0 +1,54 @@
+{
+  "+p_xml": "version=\"1.0\" encoding=\"UTF-8\"",
+  "knxServer": {
+    "+@name": "NAME",
+    "+@friendlyName": "FRIENDLY_NAME",
+    "discovery": {
+      "+@listenNetIf": "DISCOVERY_LISTEN_IF",
+      "+@outgoingNetIf": "DISCOVERY_OUT_IF",
+      "+@activate": "DISCOVERY"
+    },
+    "serviceContainer": {
+      "+@activate": "true",
+      "+@routing": "true",
+      "+@networkMonitoring": "true",
+      "+@udpPort": "3671",
+      "+@listenNetIf": "LISTEN_IF",
+      "knxAddress": {
+        "+content": "PHYS_ADDRESS",
+        "+@type": "individual"
+      },
+      "routing": null,
+      "knxSubnet": {
+        "+content": "SERIAL_PORT",
+        "+@type": "SUBNET_TYPE",
+        "+@medium": "tp1"
+      },
+      "groupAddressFilter": null,
+      "additionalAddresses": {
+        "knxAddress": [
+          {
+            "+content": "ADDITIONAL_ADDRESS1",
+            "+@type": "individual"
+          },
+          {
+            "+content": "ADDITIONAL_ADDRESS2",
+            "+@type": "individual"
+          },
+          {
+            "+content": "ADDITIONAL_ADDRESS3",
+            "+@type": "individual"
+          },
+          {
+            "+content": "ADDITIONAL_ADDRESS4",
+            "+@type": "individual"
+          },
+          {
+            "+content": "ADDITIONAL_ADDRESS5",
+            "+@type": "individual"
+          }
+        ]
+      }
+    }
+  }
+}
