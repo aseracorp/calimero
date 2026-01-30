@@ -20,59 +20,61 @@
 # echo "Configuration set!"
 
 ### do the same with yq instead of sed to lay the base to be more dynamic ###
-yq '{ "+p_xml": "version=\"1.0\" encoding=\"UTF-8\"",
-  "knxServer": {
-    "+@name": "${NAME}",
-    "+@friendlyName": "${FRIENDLY_NAME}",
-    "discovery": {
-      "+@listenNetIf": "${DISCOVERY_LISTEN_IF}",
-      "+@outgoingNetIf": "${DISCOVERY_OUT_IF}",
-      "+@activate": "${DISCOVERY}"
-    },
-    "serviceContainer": {
-      "+@activate": "true",
-      "+@routing": "true",
-      "+@networkMonitoring": "true",
-      "+@ListenNetIf": "${NET_IF}",
-      "knxAddress": {
-        "+content": "${PHYS_ADDRESS}",
-        "+@type": "individual"
-      },
-      "routing": "",
-      "knxSubnet": {
-        "+content": "${SERIAL_PORT}",
-        "+@type": "${SUBNET_TYPE}",
-        "+@medium": "tp1"
-      },
-      "groupAddressFilter": "",
-      "additionalAddresses": {
-        "knxAddress": [
-          {
-            "+content": "${ADDITIONAL_ADDRESS1}",
+if [ ${CUSTOM_XML} == false ]; then
+    yq '{ "+p_xml": "version=\"1.0\" encoding=\"UTF-8\"",
+    "knxServer": {
+        "+@name": "${NAME}",
+        "+@friendlyName": "${FRIENDLY_NAME}",
+        "discovery": {
+        "+@listenNetIf": "${DISCOVERY_LISTEN_IF}",
+        "+@outgoingNetIf": "${DISCOVERY_OUT_IF}",
+        "+@activate": "${DISCOVERY}"
+        },
+        "serviceContainer": {
+        "+@activate": "true",
+        "+@routing": "true",
+        "+@networkMonitoring": "true",
+        "+@ListenNetIf": "${NET_IF}",
+        "knxAddress": {
+            "+content": "${PHYS_ADDRESS}",
             "+@type": "individual"
-          },
-          {
-            "+content": "${ADDITIONAL_ADDRESS2}",
-            "+@type": "individual"
-          },
-          {
-            "+content": "${ADDITIONAL_ADDRESS3}",
-            "+@type": "individual"
-          },
-          {
-            "+content": "${ADDITIONAL_ADDRESS4}",
-            "+@type": "individual"
-          },
-          {
-            "+content": "${ADDITIONAL_ADDRESS5}",
-            "+@type": "individual"
-          }
-        ]
-      }
+        },
+        "routing": "",
+        "knxSubnet": {
+            "+content": "${SERIAL_PORT}",
+            "+@type": "${SUBNET_TYPE}",
+            "+@medium": "tp1"
+        },
+        "groupAddressFilter": "",
+        "additionalAddresses": {
+            "knxAddress": [
+            {
+                "+content": "${ADDITIONAL_ADDRESS1}",
+                "+@type": "individual"
+            },
+            {
+                "+content": "${ADDITIONAL_ADDRESS2}",
+                "+@type": "individual"
+            },
+            {
+                "+content": "${ADDITIONAL_ADDRESS3}",
+                "+@type": "individual"
+            },
+            {
+                "+content": "${ADDITIONAL_ADDRESS4}",
+                "+@type": "individual"
+            },
+            {
+                "+content": "${ADDITIONAL_ADDRESS5}",
+                "+@type": "individual"
+            }
+            ]
+        }
+        }
     }
-  }
-}
- | (.. | select(tag =="!!str")) |= envsubst' -i server-config.xml
+    }
+    | (.. | select(tag =="!!str")) |= envsubst' -i server-config.xml
+fi
 
 # Run the standard container command.
 echo "Init done. Run Calimero..."

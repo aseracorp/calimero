@@ -19,6 +19,7 @@ ENV ADDITIONAL_ADDRESS3="7.1.3"
 ENV ADDITIONAL_ADDRESS4="7.1.4"
 ENV ADDITIONAL_ADDRESS5="7.1.5"
 ENV SUBNET_TYPE="tpuart"
+ENV CUSTOM_XML=false
 
 #fix JAVA_HOME is set to an invalid directory: /usr/lib/jvm/jdk-21
 ENV JAVA_HOME=/usr/lib/jvm/jdk-23
