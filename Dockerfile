@@ -20,6 +20,10 @@ ENV ADDITIONAL_ADDRESS4="7.1.4"
 ENV ADDITIONAL_ADDRESS5="7.1.5"
 ENV SUBNET_TYPE="tpuart"
 
+#fix JAVA_HOME is set to an invalid directory: /usr/lib/jvm/jdk-21
+ENV JAVA_HOME=/usr/lib/jvm/jdk-23
+ENV PATH=/usr/lib/jvm/jdk-23/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 RUN apk update && apk add yq
 
 ENTRYPOINT ["/usr/app/entrypoint.sh"]

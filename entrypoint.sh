@@ -33,8 +33,7 @@ yq '{ "+p_xml": "version=\"1.0\" encoding=\"UTF-8\"",
       "+@activate": "true",
       "+@routing": "true",
       "+@networkMonitoring": "true",
-      "+@udpPort": "3671",
-      "+@netif": "${NET_IF}",
+      "+@ListenNetIf": "${NET_IF}",
       "knxAddress": {
         "+content": "${PHYS_ADDRESS}",
         "+@type": "individual"
