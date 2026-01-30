@@ -20,7 +20,10 @@
 # echo "Configuration set!"
 
 ### do the same with yq instead of sed to lay the base to be more dynamic ###
-if [ ${CUSTOM_XML} == false ]; then
+if [ ${CUSTOM_XML} == true ]; then
+    #if CUSTOM_XML is active, only replace vars, do not override additional settings.
+    yq '(.. | select(tag =="!!str")) |= envsubst' -i server-config.xml
+else
     yq '{ "+p_xml": "version=\"1.0\" encoding=\"UTF-8\"",
     "knxServer": {
         "+@name": "${NAME}",
@@ -34,6 +37,7 @@ if [ ${CUSTOM_XML} == false ]; then
         "+@activate": "true",
         "+@routing": "true",
         "+@networkMonitoring": "true",
+        "+@ListenNetIf": "${NET_IF}",
         "knxAddress": {
             "+content": "${PHYS_ADDRESS}",
             "+@type": "individual"
