@@ -4,9 +4,9 @@ name: Create and publish a Docker image for calimero-server
 # Configures this workflow to run every time a change is pushed to the branch called `master`.
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "beta" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "beta" ]
 
 # Defines two custom environment variables for the workflow. These are used for the Container registry domain, and a name for the Docker image that this workflow builds.
 env:
@@ -48,7 +48,9 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          tags: type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}
+          tags: |
+            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}
+            type=raw,value=beta,enable=${{ github.ref == format('refs/heads/{0}', 'beta') }}
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
   
           # This step uses the `docker/build-push-action` action to build the image, based on your repository's `Dockerfile`. If the build succeeds, it pushes the image to GitHub Packages.

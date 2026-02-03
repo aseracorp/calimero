@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knxServer name="NAME" friendlyName="FRIENDLY_NAME">
+	<discovery listenNetIf="DISCOVERY_LISTEN_IF" outgoingNetIf="DISCOVERY_OUT_IF" activate="DISCOVERY" />
+	<serviceContainer activate="true" routing="true" networkMonitoring="true" udpPort="3671" netif="any">
+		<knxAddress type="individual">PHYS_ADDRESS</knxAddress>
+		<routing></routing>
+		<knxSubnet type="SUBNET_TYPE" medium="tp1">SERIAL_PORT</knxSubnet>
+		<groupAddressFilter>
+		</groupAddressFilter>
+		<additionalAddresses>
+			<knxAddress type="individual">ADDITIONAL_ADDRESS1</knxAddress>
+			<knxAddress type="individual">ADDITIONAL_ADDRESS2</knxAddress>
+			<knxAddress type="individual">ADDITIONAL_ADDRESS3</knxAddress>
+			<knxAddress type="individual">ADDITIONAL_ADDRESS4</knxAddress>
+			<knxAddress type="individual">ADDITIONAL_ADDRESS5</knxAddress>
+		</additionalAddresses>
+	</serviceContainer>
+</knxServer>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<knxServer name="Calimero" friendlyName="Calimero KNXnet/IP-Router">
+	<discovery listenNetIf="all" outgoingNetIf="all" activate="true"></discovery>
+	<serviceContainer activate="true" routing="true" networkMonitoring="true" udpPort="3671" netif="any">
+		<knxAddress type="individual">1.0.0</knxAddress>
+		<routing></routing>
+		<knxSubnet type="tpuart" medium="tp1">/dev/ttyKNX</knxSubnet>
+		<groupAddressFilter>null</groupAddressFilter>
+		<additionalAddresses>
+			<knxAddress type="individual">1.0.240</knxAddress>
+			<knxAddress type="individual">1.0.241</knxAddress>
+			<knxAddress type="individual">1.0.242</knxAddress>
+			<knxAddress type="individual">1.0.243</knxAddress>
+			<knxAddress type="individual">1.0.244</knxAddress>
+		</additionalAddresses>
+	</serviceContainer>
+</knxServer>
