@@ -20,6 +20,7 @@
 # echo "Configuration set!"
 
 ### do the same with yq instead of sed to lay the base to be more dynamic ###
+touch server-config.xml
 yq '{ "+p_xml": "version=\"1.0\" encoding=\"UTF-8\"",
 "knxServer": {
     "+@name": "${NAME}",
