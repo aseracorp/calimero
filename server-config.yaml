@@ -11,7 +11,7 @@ knxServer:
     +@routing: "true"
     +@networkMonitoring: "true"
     +@udpPort: "3671"
-    +@listenNetIf: LISTEN_IF
+    +@netif: LISTEN_IF
     knxAddress:
       +content: PHYS_ADDRESS
       +@type: individual

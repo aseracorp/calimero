@@ -34,7 +34,7 @@ yq '{ "+p_xml": "version=\"1.0\" encoding=\"UTF-8\"",
     "+@activate": "true",
     "+@routing": "true",
     "+@networkMonitoring": "true",
-    "+@listenNetIf": "${LISTEN_IF}",
+    "+@netif": "${LISTEN_IF}",
     "knxAddress": {
         "+content": "${PHYS_ADDRESS}",
         "+@type": "individual"

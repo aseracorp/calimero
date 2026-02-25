@@ -22,4 +22,4 @@ ENV SUBNET_TYPE="tpuart"
 RUN apk update && apk add yq
 
 ENTRYPOINT ["/usr/app/entrypoint.sh"]
-CMD ["calimero-server-3.0-SNAPSHOT/bin/calimero-server", "--no-stdin", "/usr/app/server-config.xml"]
+CMD ["calimero-server/bin/calimero-server", "--no-stdin", "/usr/app/server-config.xml"]

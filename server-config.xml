@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <knxServer name="${NAME}" friendlyName="${FRIENDLY_NAME}">
   <discovery listenNetIf="${DISCOVERY_LISTEN_IF}" outgoingNetIf="${DISCOVERY_OUT_IF}" activate="${DISCOVERY}"></discovery>
-  <serviceContainer activate="true" routing="true" networkMonitoring="true" listenNetIf="${LISTEN_IF}">
+  <serviceContainer activate="true" routing="true" networkMonitoring="true" netif="${LISTEN_IF}">
     <knxAddress type="individual">${PHYS_ADDRESS}</knxAddress>
     <routing></routing>
     <knxSubnet type="${SUBNET_TYPE}" medium="tp1">${SERIAL_PORT}</knxSubnet>
