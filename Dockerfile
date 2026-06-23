@@ -19,7 +19,13 @@ ENV ADDITIONAL_ADDRESS4="0.1.4"
 ENV ADDITIONAL_ADDRESS5="0.1.5"
 ENV SUBNET_TYPE="tpuart"
 
+USER root
+
 RUN apk add --no-cache yq
+
+USER $user
+
+EXPOSE 3671/udp 3671/tcp
 
 ENTRYPOINT ["/usr/app/entrypoint.sh"]
 CMD ["calimero-server/bin/calimero-server", "--no-stdin", "/usr/app/server-config.xml"]
